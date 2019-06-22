@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="QUZ-4T-EQ0">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Item 2-->
+        <scene sceneID="deM-eX-ecq">
+            <objects>
+                <viewController id="t5e-AD-igr" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7w2-bV-hQ6">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="zVK-Zb-1sP"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item 2" id="a5M-2Q-vnz"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d6b-I7-Uvh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="449" y="25"/>
+        </scene>
+        <!--Item 1-->
+        <scene sceneID="qmW-hw-lqD">
+            <objects>
+                <viewController id="Cjh-eq-pXp" customClass="SearchMainViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="RaY-a9-0LS">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SDc-sr-K3f">
+                                <rect key="frame" x="0.0" y="94" width="414" height="719"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zYz-76-KJw">
+                                <rect key="frame" x="0.0" y="44" width="355" height="50"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4S9-eL-Kbe">
+                                <rect key="frame" x="355" y="44" width="59" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="59" id="12X-59-lEa"/>
+                                    <constraint firstAttribute="height" constant="50" id="acS-IU-lfJ"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="SDc-sr-K3f" firstAttribute="leading" secondItem="vpy-cN-y7Z" secondAttribute="leading" id="2hq-UT-BRA"/>
+                            <constraint firstItem="zYz-76-KJw" firstAttribute="leading" secondItem="vpy-cN-y7Z" secondAttribute="leading" id="7RP-Yi-EwF"/>
+                            <constraint firstItem="vpy-cN-y7Z" firstAttribute="trailing" secondItem="SDc-sr-K3f" secondAttribute="trailing" id="BD5-g8-0rU"/>
+                            <constraint firstItem="4S9-eL-Kbe" firstAttribute="top" secondItem="vpy-cN-y7Z" secondAttribute="top" id="Btk-T3-llC"/>
+                            <constraint firstItem="vpy-cN-y7Z" firstAttribute="bottom" secondItem="SDc-sr-K3f" secondAttribute="bottom" id="HVc-5B-hyI"/>
+                            <constraint firstItem="vpy-cN-y7Z" firstAttribute="trailing" secondItem="4S9-eL-Kbe" secondAttribute="trailing" id="SeG-5b-eSS"/>
+                            <constraint firstItem="SDc-sr-K3f" firstAttribute="top" secondItem="zYz-76-KJw" secondAttribute="bottom" id="UFs-hc-fs2"/>
+                            <constraint firstItem="zYz-76-KJw" firstAttribute="top" secondItem="vpy-cN-y7Z" secondAttribute="top" id="llc-xo-EWF"/>
+                            <constraint firstItem="4S9-eL-Kbe" firstAttribute="leading" secondItem="zYz-76-KJw" secondAttribute="trailing" id="ntS-cy-E3V"/>
+                            <constraint firstItem="SDc-sr-K3f" firstAttribute="top" secondItem="4S9-eL-Kbe" secondAttribute="bottom" id="tU3-vW-Qdn"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="vpy-cN-y7Z"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item 1" id="X7B-jd-yrq"/>
+                    <connections>
+                        <outlet property="tableView" destination="SDc-sr-K3f" id="vw5-kj-KeQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VZI-al-nSo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-432" y="25"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="kma-lG-u0J">
+            <objects>
+                <tabBarController id="QUZ-4T-EQ0" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="tzY-DC-uK2">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="Cjh-eq-pXp" kind="relationship" relationship="viewControllers" id="0by-Nv-4yB"/>
+                        <segue destination="t5e-AD-igr" kind="relationship" relationship="viewControllers" id="99n-yq-rs7"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XRe-Lp-ZzY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-431" y="-692"/>
+        </scene>
+    </scenes>
+</document>
