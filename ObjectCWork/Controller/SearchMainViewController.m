@@ -7,8 +7,11 @@
 //
 
 #import "SearchMainViewController.h"
+#import "ITunesProvider.h"
 
 @interface SearchMainViewController() <UITableViewDelegate, UITableViewDataSource>
+
+@property ITunesProvider *itunesProvider;
 
 @end
 
@@ -16,6 +19,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.itunesProvider = [ITunesProvider new];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self.tableView registerNib:[UINib nibWithNibName: @"SearchMainTableViewCell" bundle:nil] forCellReuseIdentifier: @"SearchMainTableViewCell"];
@@ -37,4 +41,8 @@
     return 1;
 }
 
+- (IBAction)searchButtonAction:(id)sender {
+    
+    [self.itunesProvider getSearchITune: self.textField.text];
+}
 @end

@@ -51,6 +51,9 @@
                                     <constraint firstAttribute="height" constant="50" id="acS-IU-lfJ"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="searchButtonAction:" destination="Cjh-eq-pXp" eventType="touchUpInside" id="vbJ-0n-YG9"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -71,6 +74,7 @@
                     <tabBarItem key="tabBarItem" title="Item 1" id="X7B-jd-yrq"/>
                     <connections>
                         <outlet property="tableView" destination="SDc-sr-K3f" id="vw5-kj-KeQ"/>
+                        <outlet property="textField" destination="zYz-76-KJw" id="pDt-5A-XQh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VZI-al-nSo" userLabel="First Responder" sceneMemberID="firstResponder"/>
