@@ -6,5 +6,6 @@ target 'ObjectCWork' do
   # use_frameworks!
 
   # Pods for ObjectCWork
+pod 'AFNetworking', '~> 3.0'
 
 end
