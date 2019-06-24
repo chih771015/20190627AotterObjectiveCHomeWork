@@ -28,6 +28,7 @@
     
     self.songArray = [NSMutableArray new];
     self.movieArray = [NSMutableArray new];
+    completionHandler();
     
     [self.afNetWorking postRequest:searchTitle completionHandler:^(NSDictionary *dictionary) {
 

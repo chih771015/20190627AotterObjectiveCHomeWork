@@ -79,10 +79,30 @@
         return 1;
     }
 }
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (indexPath.section == 0) {
+        
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString: self.itunesProvider.songArray[indexPath.row].trackViewUrl]
+                                           options: [NSDictionary new] completionHandler:^(BOOL success) {
+            
+        }];
+    }
+    
+    if (indexPath.section == 1) {
+        
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString: self.itunesProvider.movieArray[indexPath.row].trackViewUrl]
+                                           options: [NSDictionary new] completionHandler:^(BOOL success) {
+                                               
+                                           }];
+    }
+}
 
 - (IBAction)searchButtonAction:(id)sender {
     
-    [self.itunesProvider getSearchITune: self.textField.text completionHandler:^{
+    NSString *text = [self.textField.text stringByReplacingOccurrencesOfString:@" " withString:@"+"];
+    
+    [self.itunesProvider getSearchITune: text completionHandler:^{
         
         [self.tableView reloadData];
     }];
