@@ -11,6 +11,21 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface SearchMainTableViewCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UIImageView *titleImageView;
+
+@property (weak, nonatomic) IBOutlet UILabel *trackNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *artistNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *collectionNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *trackTimeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *longDescriptionLabel;
+
+
+-(void) setupCellWithTrackName: (NSString *)trackName
+                    artistName: (NSString *)artistName
+                collectionName: (NSString *)collectionName
+               longDescription: (NSString *)longDescription
+                     trackTime: (NSString *)trackTime
+                  trackViewUrl: (NSString *)trackViewUrl;;
 
 @end
 

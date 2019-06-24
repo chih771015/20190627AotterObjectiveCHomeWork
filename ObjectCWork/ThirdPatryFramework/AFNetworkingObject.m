@@ -10,13 +10,12 @@
 
 @interface AFNetworkngObject()
 
--(void)postRequest:(NSString *)url completionHandler:(void(^)(NSURLResponse*))completionHandler;
 
 @end
 
 @implementation AFNetworkngObject
 
--(void)postRequest:(NSString *)url completionHandler:(void (^)(NSURLResponse *))completionHandler {
+-(void)postRequest:(NSString *)url completionHandler:(void(^)(NSDictionary*))completionHandler {
     
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
@@ -27,11 +26,13 @@
     NSURLRequest *request = [NSURLRequest requestWithURL:URL];
     
     NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
+      
         if (error) {
             NSLog(@"Error: %@", error);
         } else {
-            NSLog(@"%@ %@", response, responseObject);
-            completionHandler(response);
+            NSDictionary *data = responseObject;
+//            NSLog(@"%@", data);
+            completionHandler(data);
         }
     }];
     [dataTask resume];

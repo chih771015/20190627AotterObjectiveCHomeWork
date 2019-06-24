@@ -7,7 +7,6 @@
 //
 
 #import "SearchMainViewController.h"
-#import "ITunesProvider.h"
 
 @interface SearchMainViewController() <UITableViewDelegate, UITableViewDataSource>
 
@@ -31,18 +30,61 @@
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
 
-    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier: @"SearchMainTableViewCell" forIndexPath:indexPath];
-    cell.textLabel.text = @"DDDD";
+    SearchMainTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier: @"SearchMainTableViewCell" forIndexPath:indexPath];
+    
+    ITunesDataObject *data;
+    if (indexPath.section == 0) {
+        
+        data = _itunesProvider.songArray[indexPath.row];
+        
+    }
+    if (indexPath.section == 1) {
+        
+        data = _itunesProvider.movieArray[indexPath.row];
+    }
+    
+    
+    [cell setupCellWithTrackName:data.trackName artistName:data.artistName collectionName:data.collectionName longDescription:data.longDescription trackTime: [data getTimeString]
+                    trackViewUrl:data.artworkUrl100];
+    
     return cell;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    
+    if (section == 0) {
+        
+        return @"音樂";
+    } else {
+        
+        return @"電影";
+    }
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    
+    return 2;
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return 1;
+    if (section == 0) {
+        
+        return _itunesProvider.songArray.count;
+    } else if (section == 1) {
+        
+        return _itunesProvider.movieArray.count;
+    } else {
+    
+        return 1;
+    }
 }
 
 - (IBAction)searchButtonAction:(id)sender {
     
-    [self.itunesProvider getSearchITune: self.textField.text];
+    [self.itunesProvider getSearchITune: self.textField.text completionHandler:^{
+        
+        [self.tableView reloadData];
+    }];
 }
 @end

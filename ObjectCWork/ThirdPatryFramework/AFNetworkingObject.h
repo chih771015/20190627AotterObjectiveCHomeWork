@@ -12,6 +12,6 @@
 @interface AFNetworkngObject : NSObject
 
 
--(void)postRequest:(NSString *)url completionHandler:(void(^)(NSURLResponse*))completionHandler;
+-(void)postRequest:(NSString *)url completionHandler:(void(^)(NSDictionary*))completionHandler;
 
 @end

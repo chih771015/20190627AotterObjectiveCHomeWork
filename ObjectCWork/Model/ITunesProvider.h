@@ -8,11 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import "AFNetworkingObject.h"
+#import "ITunesDataObject.h"
 
 @interface ITunesProvider : NSObject
 
 @property AFNetworkngObject *afNetWorking;
+@property NSMutableArray<ITunesDataObject *> *songArray, *movieArray;
 
--(void) getSearchITune:(NSString *)searchTitle;
+-(void) getSearchITune:(NSString *)searchTitle completionHandler: (void(^)(void))completionHandler;
 
 @end

@@ -46,7 +46,7 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="idk-49-ZgM">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="idk-49-ZgM">
                         <rect key="frame" x="108" y="95" width="258" height="51.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <nil key="textColor"/>
@@ -69,6 +69,7 @@
                     <constraint firstItem="EDW-vp-5Ae" firstAttribute="leading" secondItem="aep-Iv-8zm" secondAttribute="leading" id="61u-tT-HTr"/>
                     <constraint firstItem="h9i-Zg-7B5" firstAttribute="leading" secondItem="FfM-p4-idu" secondAttribute="trailing" id="6FW-Xc-VnD"/>
                     <constraint firstItem="idk-49-ZgM" firstAttribute="leading" secondItem="urn-xG-3iq" secondAttribute="leading" id="HNs-b8-ePO"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="HQY-we-0Zb" secondAttribute="bottom" constant="16" id="Jgr-fg-Gpf"/>
                     <constraint firstItem="urn-xG-3iq" firstAttribute="top" secondItem="EDW-vp-5Ae" secondAttribute="bottom" constant="2" id="S28-2s-Db3"/>
                     <constraint firstItem="EDW-vp-5Ae" firstAttribute="trailing" secondItem="aep-Iv-8zm" secondAttribute="trailing" id="TUt-Hf-Q8c"/>
                     <constraint firstItem="urn-xG-3iq" firstAttribute="trailing" secondItem="EDW-vp-5Ae" secondAttribute="trailing" id="TcJ-4F-02D"/>
@@ -89,6 +90,14 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
+            <connections>
+                <outlet property="artistNameLabel" destination="aep-Iv-8zm" id="KOM-mt-BRW"/>
+                <outlet property="collectionNameLabel" destination="EDW-vp-5Ae" id="93z-4k-UG8"/>
+                <outlet property="longDescriptionLabel" destination="idk-49-ZgM" id="lpH-Ht-2JO"/>
+                <outlet property="titleImageView" destination="HQY-we-0Zb" id="9vI-oo-mIh"/>
+                <outlet property="trackNameLabel" destination="FfM-p4-idu" id="ZiX-Af-adl"/>
+                <outlet property="trackTimeLabel" destination="urn-xG-3iq" id="2bJ-y9-lzs"/>
+            </connections>
             <point key="canvasLocation" x="182.60869565217394" y="170.42410714285714"/>
         </tableViewCell>
     </objects>

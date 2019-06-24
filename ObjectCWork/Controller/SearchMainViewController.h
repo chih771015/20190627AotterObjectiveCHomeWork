@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ITunesProvider.h"
+#import "SearchMainTableViewCell.h"
 
 @interface SearchMainViewController : UIViewController
 
