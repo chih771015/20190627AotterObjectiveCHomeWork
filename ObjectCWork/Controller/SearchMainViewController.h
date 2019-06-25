@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "ITunesProvider.h"
 #import "SearchMainTableViewCell.h"
+#import "UserStatusSingleton.h"
 
 @interface SearchMainViewController : UIViewController
 

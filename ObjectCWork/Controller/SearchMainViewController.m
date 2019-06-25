@@ -11,6 +11,7 @@
 @interface SearchMainViewController() <UITableViewDelegate, UITableViewDataSource, SearchMainTableViewCellDelegate>
 
 @property ITunesProvider *itunesProvider;
+@property UserStatusSingleton *userStatus;
 
 @end
 
@@ -19,6 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.itunesProvider = [ITunesProvider new];
+    self.userStatus = [UserStatusSingleton sharedInstance];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self.tableView registerNib:[UINib nibWithNibName: @"SearchMainTableViewCell" bundle:nil] forCellReuseIdentifier: @"SearchMainTableViewCell"];
@@ -42,10 +44,8 @@
         
         data = _itunesProvider.movieArray[indexPath.row];
     }
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    NSMutableArray<NSDictionary *> *likeArray = [userDefaults objectForKey:@"LikeData"];
-    BOOL isLike = [likeArray containsObject:[data returnDictionay]];
     
+    BOOL isLike = [self.userStatus.likeArray containsObject:[data returnDictionay]];
     [cell setupCellWithTrackName:data.trackName artistName:data.artistName collectionName:data.collectionName longDescription:data.longDescription trackTime: [data getTimeString]
                     trackViewUrl:data.artworkUrl100 isLike: isLike];
     cell.delegate = self;
@@ -122,20 +122,32 @@
         data = self.itunesProvider.movieArray[indexPath.row];
     }
     NSDictionary *dataDictionary = [data returnDictionay];
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    NSMutableArray<NSDictionary *> *likeArray = [[userDefaults objectForKey:@"LikeData"] mutableCopy];
-    if ([likeArray containsObject:dataDictionary]) {
+    
+    BOOL isLike = [self.userStatus isLikeDataObject: data];
+    
+    if (isLike) {
         
-        [likeArray removeObject:dataDictionary];
+        [self.userStatus removeLikeDataObject:data];
     } else {
-        if (likeArray == nil) {
-            
-            likeArray = [NSMutableArray<NSDictionary *> new];
-        }
-        [likeArray addObject:dataDictionary];
+        
+        [self.userStatus saveLikeDataObject:data];
     }
-    [userDefaults setObject: likeArray forKey:@"LikeData"];
-    [userDefaults synchronize];
+//
+//    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+//    NSMutableArray<NSDictionary *> *likeArray = [[userDefaults objectForKey:@"LikeData"] mutableCopy];
+//    if ([likeArray containsObject:dataDictionary]) {
+//
+//        [likeArray removeObject:dataDictionary];
+//    } else {
+//        if (likeArray == nil) {
+//
+//            likeArray = [NSMutableArray<NSDictionary *> new];
+//        }
+//        [likeArray addObject:dataDictionary];
+//    }
+//    [userDefaults setObject: likeArray forKey:@"LikeData"];
+//    [userDefaults synchronize];
+    
     
     
     NSMutableArray<NSIndexPath *> *indexArray = [NSMutableArray new];

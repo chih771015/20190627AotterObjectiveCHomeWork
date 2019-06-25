@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5924F1F822C075A800F1E57A /* ITunesDataObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 5924F1F722C075A800F1E57A /* ITunesDataObject.m */; };
+		5974A88F22C1DEE900F02C93 /* UserStatusSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5974A88E22C1DEE900F02C93 /* UserStatusSingleton.m */; };
 		59A49AD422BF7802001A9507 /* ITunesProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 59A49AD322BF7802001A9507 /* ITunesProvider.m */; };
 		59A49AD822BF7C26001A9507 /* AFNetworkingObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 59A49AD722BF7C26001A9507 /* AFNetworkingObject.m */; };
 		59E6B40E22BE5B8900A956DD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 59E6B40D22BE5B8900A956DD /* AppDelegate.m */; };
@@ -26,6 +27,8 @@
 		04DE4DDA32EC54C1827629B7 /* Pods-ObjectCWork.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ObjectCWork.release.xcconfig"; path = "Target Support Files/Pods-ObjectCWork/Pods-ObjectCWork.release.xcconfig"; sourceTree = "<group>"; };
 		5924F1F722C075A800F1E57A /* ITunesDataObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ITunesDataObject.m; sourceTree = "<group>"; };
 		5924F1F922C075BB00F1E57A /* ITunesDataObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ITunesDataObject.h; sourceTree = "<group>"; };
+		5974A88E22C1DEE900F02C93 /* UserStatusSingleton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserStatusSingleton.m; sourceTree = "<group>"; };
+		5974A89022C1DEF600F02C93 /* UserStatusSingleton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserStatusSingleton.h; sourceTree = "<group>"; };
 		59A49AD322BF7802001A9507 /* ITunesProvider.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ITunesProvider.m; sourceTree = "<group>"; };
 		59A49AD522BF7833001A9507 /* ITunesProvider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ITunesProvider.h; sourceTree = "<group>"; };
 		59A49AD722BF7C26001A9507 /* AFNetworkingObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AFNetworkingObject.m; sourceTree = "<group>"; };
@@ -73,6 +76,8 @@
 				59A49AD522BF7833001A9507 /* ITunesProvider.h */,
 				5924F1F722C075A800F1E57A /* ITunesDataObject.m */,
 				5924F1F922C075BB00F1E57A /* ITunesDataObject.h */,
+				5974A88E22C1DEE900F02C93 /* UserStatusSingleton.m */,
+				5974A89022C1DEF600F02C93 /* UserStatusSingleton.h */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -253,6 +258,7 @@
 				59E6B42F22BE66D200A956DD /* SearchMainTableViewCell.m in Sources */,
 				59A49AD822BF7C26001A9507 /* AFNetworkingObject.m in Sources */,
 				59A49AD422BF7802001A9507 /* ITunesProvider.m in Sources */,
+				5974A88F22C1DEE900F02C93 /* UserStatusSingleton.m in Sources */,
 				59E6B40E22BE5B8900A956DD /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
