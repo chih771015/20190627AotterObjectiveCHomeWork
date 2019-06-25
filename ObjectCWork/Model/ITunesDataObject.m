@@ -16,6 +16,31 @@
 
 @synthesize kind, artistName, trackTime, collectionName, longDescription, trackViewUrl, trackName, artworkUrl100;
 
+- (instancetype)initWithDictionay:(NSDictionary *)dictionary {
+    
+    self = [super init];
+    if (self) {
+        
+        NSString *kind = dictionary[@"kind"],
+        *artistName = dictionary[@"artistName"],
+        *collectionName = dictionary[@"collectionName"],
+        *longDescription = dictionary[@"longDescription"],
+        *trackName = dictionary[@"trackName"],
+        *trackViewUrl = dictionary[@"trackViewUrl"],
+        *artworkUrl100 = dictionary[@"artworkUrl100"];
+        NSNumber  *trackTimeMillis = dictionary[@"trackTimeMillis"];
+        self.artistName = artistName;
+        self.trackTime = trackTimeMillis;
+        self.collectionName = collectionName;
+        self.kind = kind;
+        self.longDescription = longDescription;
+        self.trackViewUrl = trackViewUrl;
+        self.trackName = trackName;
+        self.artworkUrl100 = artworkUrl100;
+    }
+    return self;
+}
+
 - (instancetype)initWithkind: (NSString *)kind
                   artistName: (NSString *)artistName
                    tracktime: (NSNumber *)tracktime
@@ -67,6 +92,22 @@
 //    [allTimeString appendString:minSecondString];
     
     return allTimeString;
+}
+
+- (NSDictionary *)returnDictionay {
+    
+    NSMutableDictionary *dictionary = [NSMutableDictionary new];
+    
+    [dictionary setValue:self.artistName forKey:@"artistName"];
+    [dictionary setValue:self.artworkUrl100 forKey:@"artworkUrl100"];
+    [dictionary setValue:self.collectionName forKey:@"collectionName"];
+    [dictionary setValue:self.longDescription forKey:@"longDescription"];
+    [dictionary setValue:self.trackTime forKey:@"trackTimeMillis"];
+    [dictionary setValue:self.trackViewUrl forKey:@"trackViewUrl"];
+    [dictionary setValue:self.kind forKey:@"kind"];
+    [dictionary setValue:self.trackName forKey:@"trackName"];
+    
+    return dictionary;
 }
 
 @end

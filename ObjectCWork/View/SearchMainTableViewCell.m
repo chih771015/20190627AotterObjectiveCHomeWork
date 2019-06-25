@@ -11,7 +11,12 @@
 
 @implementation SearchMainTableViewCell
 
-- (void)setupCellWithTrackName:(NSString *)trackName artistName:(NSString *)artistName collectionName:(NSString *)collectionName longDescription:(NSString *)longDescription trackTime:(NSString *)trackTime trackViewUrl:(NSString *)trackViewUrl {
+- (void)setupCellWithTrackName:(NSString *)trackName
+                    artistName:(NSString *)artistName
+                collectionName:(NSString *)collectionName
+               longDescription:(NSString *)longDescription
+                     trackTime:(NSString *)trackTime trackViewUrl:(NSString *)trackViewUrl
+                        isLike:(BOOL)isLike {
     
     self.longDescriptionLabel.text = longDescription;
     self.trackNameLabel.text = trackName;
@@ -20,6 +25,17 @@
     self.collectionNameLabel.text = collectionName;
     NSURL *url = [[NSURL alloc]initWithString:trackViewUrl];
     [self.titleImageView setImageWithURL:url];
+    
+    if (isLike) {
+        
+        [self.likeButton setTitle:@"取消" forState: UIControlStateNormal];
+        [self.likeButton setTitle:@"取消" forState: UIControlStateSelected];
+    } else {
+        
+        [self.likeButton setTitle:@"收藏" forState: UIControlStateNormal];
+        [self.likeButton setTitle:@"收藏" forState: UIControlStateNormal];
+    }
+    
 }
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -35,6 +51,10 @@
 - (void)prepareForReuse {
     [super prepareForReuse];
 
+}
+- (IBAction)likeAction:(id)sender {
+    
+    [self.delegate getLikeButtonAction: self];
 }
 
 @end

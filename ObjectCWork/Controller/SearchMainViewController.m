@@ -8,7 +8,7 @@
 
 #import "SearchMainViewController.h"
 
-@interface SearchMainViewController() <UITableViewDelegate, UITableViewDataSource>
+@interface SearchMainViewController() <UITableViewDelegate, UITableViewDataSource, SearchMainTableViewCellDelegate>
 
 @property ITunesProvider *itunesProvider;
 
@@ -42,11 +42,13 @@
         
         data = _itunesProvider.movieArray[indexPath.row];
     }
-    
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSMutableArray<NSDictionary *> *likeArray = [userDefaults objectForKey:@"LikeData"];
+    BOOL isLike = [likeArray containsObject:[data returnDictionay]];
     
     [cell setupCellWithTrackName:data.trackName artistName:data.artistName collectionName:data.collectionName longDescription:data.longDescription trackTime: [data getTimeString]
-                    trackViewUrl:data.artworkUrl100];
-    
+                    trackViewUrl:data.artworkUrl100 isLike: isLike];
+    cell.delegate = self;
     return cell;
 }
 
@@ -106,5 +108,42 @@
         
         [self.tableView reloadData];
     }];
+}
+
+- (void)getLikeButtonAction:(UITableViewCell *)cell {
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+    ITunesDataObject *data;
+    if (indexPath.section == 0) {
+        
+        data = self.itunesProvider.songArray[indexPath.row];
+    }
+    if (indexPath.section == 1) {
+        
+        data = self.itunesProvider.movieArray[indexPath.row];
+    }
+    NSDictionary *dataDictionary = [data returnDictionay];
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSMutableArray<NSDictionary *> *likeArray = [[userDefaults objectForKey:@"LikeData"] mutableCopy];
+    if ([likeArray containsObject:dataDictionary]) {
+        
+        [likeArray removeObject:dataDictionary];
+    } else {
+        if (likeArray == nil) {
+            
+            likeArray = [NSMutableArray<NSDictionary *> new];
+        }
+        [likeArray addObject:dataDictionary];
+    }
+    [userDefaults setObject: likeArray forKey:@"LikeData"];
+    [userDefaults synchronize];
+    
+    
+    NSMutableArray<NSIndexPath *> *indexArray = [NSMutableArray new];
+    [indexArray addObject:indexPath];
+    [self.tableView reloadRowsAtIndexPaths: indexArray withRowAnimation:UITableViewAutomaticDimension];
+}
+
+- (void)getExpandButtonAction:(UITableViewCell *)cell {
+    
 }
 @end

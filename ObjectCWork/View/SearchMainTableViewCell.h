@@ -9,6 +9,14 @@
 #import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
+//@class SearchMainTableViewCell;
+@protocol SearchMainTableViewCellDelegate <NSObject>
+
+-(void) getLikeButtonAction: (UITableViewCell *)cell;
+-(void) getExpandButtonAction: (UITableViewCell *)cell;
+
+@end
+
 
 @interface SearchMainTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *titleImageView;
@@ -18,6 +26,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *collectionNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *trackTimeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *longDescriptionLabel;
+@property (weak, nonatomic) IBOutlet UIButton *likeButton;
+@property (nonatomic, weak) id <SearchMainTableViewCellDelegate> delegate;
+
 
 
 -(void) setupCellWithTrackName: (NSString *)trackName
@@ -25,7 +36,8 @@ NS_ASSUME_NONNULL_BEGIN
                 collectionName: (NSString *)collectionName
                longDescription: (NSString *)longDescription
                      trackTime: (NSString *)trackTime
-                  trackViewUrl: (NSString *)trackViewUrl;;
+                  trackViewUrl: (NSString *)trackViewUrl
+                        isLike: (BOOL) isLike;
 
 @end
 

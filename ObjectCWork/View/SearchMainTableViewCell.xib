@@ -33,6 +33,9 @@
                             <constraint firstAttribute="width" constant="60" id="Zhw-8T-Y5Y"/>
                         </constraints>
                         <state key="normal" title="Button"/>
+                        <connections>
+                            <action selector="likeAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Btl-DY-tov"/>
+                        </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aep-Iv-8zm">
                         <rect key="frame" x="108" y="38" width="198" height="17"/>
@@ -93,6 +96,7 @@
             <connections>
                 <outlet property="artistNameLabel" destination="aep-Iv-8zm" id="KOM-mt-BRW"/>
                 <outlet property="collectionNameLabel" destination="EDW-vp-5Ae" id="93z-4k-UG8"/>
+                <outlet property="likeButton" destination="h9i-Zg-7B5" id="ghz-HM-B7L"/>
                 <outlet property="longDescriptionLabel" destination="idk-49-ZgM" id="lpH-Ht-2JO"/>
                 <outlet property="titleImageView" destination="HQY-we-0Zb" id="9vI-oo-mIh"/>
                 <outlet property="trackNameLabel" destination="FfM-p4-idu" id="ZiX-Af-adl"/>

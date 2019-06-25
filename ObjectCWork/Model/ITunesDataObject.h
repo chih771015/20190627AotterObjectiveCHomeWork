@@ -23,5 +23,9 @@
                    trackName: (NSString *)trackName
                artworkUrl100: (NSString *)artworkUrl100;
 
+- (instancetype)initWithDictionay: (NSDictionary *)dictionary;
+
 - (NSString*)getTimeString;
+
+- (NSDictionary*)returnDictionay;
 @end
