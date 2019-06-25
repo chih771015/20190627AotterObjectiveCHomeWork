@@ -11,6 +11,8 @@
 @interface UserViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic)UserStatusSingleton *userStatus;
+
+@property (weak, nonatomic) IBOutlet UIView *tableFooterView;
 -(void)setupTableView;
 
 @end
@@ -38,6 +40,7 @@
     _tableView.delegate = self;
     _tableView.dataSource = self;
     [_tableView registerNib:[UINib nibWithNibName: @"UserTableViewCell" bundle:nil] forCellReuseIdentifier: @"UserTableViewCell"];
+    self.tableView.tableFooterView = self.tableFooterView;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -75,16 +78,10 @@
  
     return 12;
 }
-
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (IBAction)aboutITunesAction:(id)sender {
+    
+    WebViewController *nextVC = [self.storyboard instantiateViewControllerWithIdentifier:@"WebViewController"];
+    [self presentViewController:nextVC animated:YES completion:nil];
 }
-*/
 
 @end

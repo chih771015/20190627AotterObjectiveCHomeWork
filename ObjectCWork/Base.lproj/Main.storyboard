@@ -21,6 +21,27 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="z6K-aS-wIH">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <view key="tableFooterView" contentMode="scaleToFill" id="4N4-VZ-KcZ">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vgj-WY-wtE">
+                                            <rect key="frame" x="257" y="16" width="141" height="12"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                            <state key="normal" title="關於Apple iTunes"/>
+                                            <connections>
+                                                <action selector="aboutITunesAction:" destination="t5e-AD-igr" eventType="touchUpInside" id="9cp-iU-BLW"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="vgj-WY-wtE" secondAttribute="bottom" constant="16" id="2oW-fU-JC0"/>
+                                        <constraint firstItem="vgj-WY-wtE" firstAttribute="top" secondItem="4N4-VZ-KcZ" secondAttribute="top" constant="16" id="3S2-K8-fKp"/>
+                                        <constraint firstItem="vgj-WY-wtE" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="4N4-VZ-KcZ" secondAttribute="leading" constant="20" symbolic="YES" id="b5e-TF-bl8"/>
+                                        <constraint firstAttribute="trailing" secondItem="vgj-WY-wtE" secondAttribute="trailing" constant="16" id="bs7-uT-da7"/>
+                                    </constraints>
+                                </view>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -34,12 +55,56 @@
                     </view>
                     <navigationItem key="navigationItem" id="aw9-Wf-ng1"/>
                     <connections>
+                        <outlet property="tableFooterView" destination="4N4-VZ-KcZ" id="0v4-y5-AIG"/>
                         <outlet property="tableView" destination="z6K-aS-wIH" id="G2w-8W-i1A"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d6b-I7-Uvh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1357.9710144927537" y="24.776785714285712"/>
+        </scene>
+        <!--Web View Controller-->
+        <scene sceneID="dmn-dr-eqC">
+            <objects>
+                <viewController storyboardIdentifier="WebViewController" id="LOq-0t-ZYQ" customClass="WebViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qkp-uz-V1z">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GKe-mP-t7c">
+                                <rect key="frame" x="0.0" y="76" width="414" height="786"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </webView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v0e-Xq-neg">
+                                <rect key="frame" x="354" y="48" width="44" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="dMe-5K-q3O"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="44" id="xx0-L0-MF2"/>
+                                </constraints>
+                                <state key="normal" image="Icons_24px_Close"/>
+                                <connections>
+                                    <action selector="dismissAction:" destination="LOq-0t-ZYQ" eventType="touchUpInside" id="68Y-Qo-W7J"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="S7P-cr-fxQ" firstAttribute="bottom" secondItem="GKe-mP-t7c" secondAttribute="bottom" id="A1S-9c-2qv"/>
+                            <constraint firstItem="S7P-cr-fxQ" firstAttribute="trailing" secondItem="v0e-Xq-neg" secondAttribute="trailing" constant="16" id="E3s-DN-OcU"/>
+                            <constraint firstItem="S7P-cr-fxQ" firstAttribute="trailing" secondItem="GKe-mP-t7c" secondAttribute="trailing" id="RYR-7N-TXJ"/>
+                            <constraint firstItem="v0e-Xq-neg" firstAttribute="top" secondItem="S7P-cr-fxQ" secondAttribute="top" constant="4" id="SM4-au-E6k"/>
+                            <constraint firstItem="GKe-mP-t7c" firstAttribute="top" secondItem="v0e-Xq-neg" secondAttribute="bottom" constant="4" id="pSK-p2-kR7"/>
+                            <constraint firstItem="GKe-mP-t7c" firstAttribute="leading" secondItem="S7P-cr-fxQ" secondAttribute="leading" id="xN9-mb-VoD"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="S7P-cr-fxQ"/>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="GKe-mP-t7c" id="Thn-vt-JXc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zho-sL-q3y" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2151" y="25"/>
         </scene>
         <!--Item 1-->
         <scene sceneID="qmW-hw-lqD">
@@ -134,4 +199,7 @@
             <point key="canvasLocation" x="447.82608695652175" y="24.776785714285712"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Icons_24px_Close" width="24" height="24"/>
+    </resources>
 </document>

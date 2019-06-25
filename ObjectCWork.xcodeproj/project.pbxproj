@@ -12,6 +12,7 @@
 		5974A89322C1FD3C00F02C93 /* UserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5974A89222C1FD3C00F02C93 /* UserViewController.m */; };
 		5974A89722C1FFBD00F02C93 /* UserTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5974A89522C1FFBD00F02C93 /* UserTableViewCell.m */; };
 		5974A89822C1FFBD00F02C93 /* UserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5974A89622C1FFBD00F02C93 /* UserTableViewCell.xib */; };
+		5974A89D22C21B5F00F02C93 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5974A89C22C21B5F00F02C93 /* WebViewController.m */; };
 		59A49AD422BF7802001A9507 /* ITunesProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 59A49AD322BF7802001A9507 /* ITunesProvider.m */; };
 		59A49AD822BF7C26001A9507 /* AFNetworkingObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 59A49AD722BF7C26001A9507 /* AFNetworkingObject.m */; };
 		59E6B40E22BE5B8900A956DD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 59E6B40D22BE5B8900A956DD /* AppDelegate.m */; };
@@ -37,6 +38,8 @@
 		5974A89422C1FFBD00F02C93 /* UserTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserTableViewCell.h; sourceTree = "<group>"; };
 		5974A89522C1FFBD00F02C93 /* UserTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserTableViewCell.m; sourceTree = "<group>"; };
 		5974A89622C1FFBD00F02C93 /* UserTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserTableViewCell.xib; sourceTree = "<group>"; };
+		5974A89B22C21B5F00F02C93 /* WebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
+		5974A89C22C21B5F00F02C93 /* WebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 		59A49AD322BF7802001A9507 /* ITunesProvider.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ITunesProvider.m; sourceTree = "<group>"; };
 		59A49AD522BF7833001A9507 /* ITunesProvider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ITunesProvider.h; sourceTree = "<group>"; };
 		59A49AD722BF7C26001A9507 /* AFNetworkingObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AFNetworkingObject.m; sourceTree = "<group>"; };
@@ -162,6 +165,8 @@
 				59E6B42522BE5E3B00A956DD /* SearchMainViewController.h */,
 				5974A89122C1FD3C00F02C93 /* UserViewController.h */,
 				5974A89222C1FD3C00F02C93 /* UserViewController.m */,
+				5974A89B22C21B5F00F02C93 /* WebViewController.h */,
+				5974A89C22C21B5F00F02C93 /* WebViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -284,6 +289,7 @@
 			files = (
 				5974A89322C1FD3C00F02C93 /* UserViewController.m in Sources */,
 				59E6B41C22BE5B8A00A956DD /* main.m in Sources */,
+				5974A89D22C21B5F00F02C93 /* WebViewController.m in Sources */,
 				5974A89722C1FFBD00F02C93 /* UserTableViewCell.m in Sources */,
 				59E6B42422BE5DB500A956DD /* SearchMainViewController.m in Sources */,
 				5924F1F822C075A800F1E57A /* ITunesDataObject.m in Sources */,

@@ -1,5 +1,5 @@
 //
-//  UserViewController.h
+//  WebViewController.h
 //  ObjectCWork
 //
 //  Created by 姜旦旦 on 2019/6/25.
@@ -7,13 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "UserTableViewCell.h"
-#import "UserStatusSingleton.h"
-#import "WebViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface UserViewController : UIViewController
+@interface WebViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UIWebView *webView;
 
 @end
 
