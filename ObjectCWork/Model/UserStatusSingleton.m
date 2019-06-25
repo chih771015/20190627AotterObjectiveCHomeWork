@@ -12,8 +12,10 @@
 
 @property NSUserDefaults *userDefault;
 
--(void) setupProperty;
+-(void) setupLikesProperty;
 -(void) saveToUserDefault;
+-(void) setupViewModel;
+-(void) setupViewModelToUserDefault;
 
 @end
 
@@ -38,12 +40,40 @@
         self.userDefault = [NSUserDefaults standardUserDefaults];
         self.songLikeArrayObject = [NSMutableArray new];
         self.movieLikeArrayObject = [NSMutableArray new];
-        [self setupProperty];
+        [self setupLikesProperty];
+        [self setupViewModel];
     }
     return self;
 }
 
-- (void)setupProperty {
+- (void)setupViewModel {
+    
+    NSString *color = [self.userDefault objectForKey:@"colorModel"];
+    if (color == nil) {
+        
+        color = @"白色";
+    }
+    self.colorSelect = color;
+}
+
+- (void)setupViewModelToUserDefault {
+    
+    [self.userDefault setObject: self.colorSelect forKey:@"colorModel"];
+    [self.userDefault synchronize];
+}
+
+- (void)viewModelToGray {
+    
+    self.colorSelect = @"灰色";
+    [self setupViewModelToUserDefault];
+}
+
+- (void)viewModelToWhite {
+    
+    self.colorSelect = @"白色";
+    [self setupViewModelToUserDefault];
+}
+- (void)setupLikesProperty {
     
     NSMutableArray<NSDictionary *> *likeArray = [[self.userDefault objectForKey:@"LikeData"] mutableCopy];
     if (likeArray == nil) {
@@ -87,6 +117,6 @@
     
     [self.userDefault setObject: self.likeArray forKey:@"LikeData"];
     [self.userDefault synchronize];
-    [self setupProperty];
+    [self setupLikesProperty];
 }
 @end

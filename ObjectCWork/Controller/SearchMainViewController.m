@@ -23,7 +23,9 @@
     self.userStatus = [UserStatusSingleton sharedInstance];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    [self.tableView registerNib:[UINib nibWithNibName: @"SearchMainTableViewCell" bundle:nil] forCellReuseIdentifier: @"SearchMainTableViewCell"];
+    [self.tableView registerNib:[UINib nibWithNibName: @"SearchMainTableViewCell"
+                                               bundle:nil]
+         forCellReuseIdentifier: @"SearchMainTableViewCell"];
 }
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -121,8 +123,7 @@
         
         data = self.itunesProvider.movieArray[indexPath.row];
     }
-    NSDictionary *dataDictionary = [data returnDictionay];
-    
+
     BOOL isLike = [self.userStatus isLikeDataObject: data];
     
     if (isLike) {
@@ -132,24 +133,6 @@
         
         [self.userStatus saveLikeDataObject:data];
     }
-//
-//    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-//    NSMutableArray<NSDictionary *> *likeArray = [[userDefaults objectForKey:@"LikeData"] mutableCopy];
-//    if ([likeArray containsObject:dataDictionary]) {
-//
-//        [likeArray removeObject:dataDictionary];
-//    } else {
-//        if (likeArray == nil) {
-//
-//            likeArray = [NSMutableArray<NSDictionary *> new];
-//        }
-//        [likeArray addObject:dataDictionary];
-//    }
-//    [userDefaults setObject: likeArray forKey:@"LikeData"];
-//    [userDefaults synchronize];
-    
-    
-    
     NSMutableArray<NSIndexPath *> *indexArray = [NSMutableArray new];
     [indexArray addObject:indexPath];
     [self.tableView reloadRowsAtIndexPaths: indexArray withRowAnimation:UITableViewAutomaticDimension];

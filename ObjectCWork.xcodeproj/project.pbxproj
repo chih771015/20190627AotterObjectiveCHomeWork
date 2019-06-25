@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		5924F1F822C075A800F1E57A /* ITunesDataObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 5924F1F722C075A800F1E57A /* ITunesDataObject.m */; };
 		5974A88F22C1DEE900F02C93 /* UserStatusSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5974A88E22C1DEE900F02C93 /* UserStatusSingleton.m */; };
+		5974A89322C1FD3C00F02C93 /* UserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5974A89222C1FD3C00F02C93 /* UserViewController.m */; };
+		5974A89722C1FFBD00F02C93 /* UserTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5974A89522C1FFBD00F02C93 /* UserTableViewCell.m */; };
+		5974A89822C1FFBD00F02C93 /* UserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5974A89622C1FFBD00F02C93 /* UserTableViewCell.xib */; };
 		59A49AD422BF7802001A9507 /* ITunesProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 59A49AD322BF7802001A9507 /* ITunesProvider.m */; };
 		59A49AD822BF7C26001A9507 /* AFNetworkingObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 59A49AD722BF7C26001A9507 /* AFNetworkingObject.m */; };
 		59E6B40E22BE5B8900A956DD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 59E6B40D22BE5B8900A956DD /* AppDelegate.m */; };
@@ -29,6 +32,11 @@
 		5924F1F922C075BB00F1E57A /* ITunesDataObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ITunesDataObject.h; sourceTree = "<group>"; };
 		5974A88E22C1DEE900F02C93 /* UserStatusSingleton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserStatusSingleton.m; sourceTree = "<group>"; };
 		5974A89022C1DEF600F02C93 /* UserStatusSingleton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserStatusSingleton.h; sourceTree = "<group>"; };
+		5974A89122C1FD3C00F02C93 /* UserViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserViewController.h; sourceTree = "<group>"; };
+		5974A89222C1FD3C00F02C93 /* UserViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserViewController.m; sourceTree = "<group>"; };
+		5974A89422C1FFBD00F02C93 /* UserTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserTableViewCell.h; sourceTree = "<group>"; };
+		5974A89522C1FFBD00F02C93 /* UserTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserTableViewCell.m; sourceTree = "<group>"; };
+		5974A89622C1FFBD00F02C93 /* UserTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserTableViewCell.xib; sourceTree = "<group>"; };
 		59A49AD322BF7802001A9507 /* ITunesProvider.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ITunesProvider.m; sourceTree = "<group>"; };
 		59A49AD522BF7833001A9507 /* ITunesProvider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ITunesProvider.h; sourceTree = "<group>"; };
 		59A49AD722BF7C26001A9507 /* AFNetworkingObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AFNetworkingObject.m; sourceTree = "<group>"; };
@@ -67,6 +75,26 @@
 				00E3B70CF9FB50AD678C7CC0 /* libPods-ObjectCWork.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5974A89922C2063C00F02C93 /* SearchMain */ = {
+			isa = PBXGroup;
+			children = (
+				59E6B42C22BE66D200A956DD /* SearchMainTableViewCell.h */,
+				59E6B42D22BE66D200A956DD /* SearchMainTableViewCell.m */,
+				59E6B42E22BE66D200A956DD /* SearchMainTableViewCell.xib */,
+			);
+			path = SearchMain;
+			sourceTree = "<group>";
+		};
+		5974A89A22C2065400F02C93 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				5974A89422C1FFBD00F02C93 /* UserTableViewCell.h */,
+				5974A89522C1FFBD00F02C93 /* UserTableViewCell.m */,
+				5974A89622C1FFBD00F02C93 /* UserTableViewCell.xib */,
+			);
+			path = User;
 			sourceTree = "<group>";
 		};
 		59A49AD222BF77CD001A9507 /* Model */ = {
@@ -132,6 +160,8 @@
 			children = (
 				59E6B42322BE5DB500A956DD /* SearchMainViewController.m */,
 				59E6B42522BE5E3B00A956DD /* SearchMainViewController.h */,
+				5974A89122C1FD3C00F02C93 /* UserViewController.h */,
+				5974A89222C1FD3C00F02C93 /* UserViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -139,9 +169,8 @@
 		59E6B42622BE668100A956DD /* View */ = {
 			isa = PBXGroup;
 			children = (
-				59E6B42C22BE66D200A956DD /* SearchMainTableViewCell.h */,
-				59E6B42D22BE66D200A956DD /* SearchMainTableViewCell.m */,
-				59E6B42E22BE66D200A956DD /* SearchMainTableViewCell.xib */,
+				5974A89A22C2065400F02C93 /* User */,
+				5974A89922C2063C00F02C93 /* SearchMain */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -217,6 +246,7 @@
 				59E6B41622BE5B8A00A956DD /* Assets.xcassets in Resources */,
 				59E6B43022BE66D200A956DD /* SearchMainTableViewCell.xib in Resources */,
 				59E6B41422BE5B8900A956DD /* Main.storyboard in Resources */,
+				5974A89822C1FFBD00F02C93 /* UserTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,7 +282,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5974A89322C1FD3C00F02C93 /* UserViewController.m in Sources */,
 				59E6B41C22BE5B8A00A956DD /* main.m in Sources */,
+				5974A89722C1FFBD00F02C93 /* UserTableViewCell.m in Sources */,
 				59E6B42422BE5DB500A956DD /* SearchMainViewController.m in Sources */,
 				5924F1F822C075A800F1E57A /* ITunesDataObject.m in Sources */,
 				59E6B42F22BE66D200A956DD /* SearchMainTableViewCell.m in Sources */,

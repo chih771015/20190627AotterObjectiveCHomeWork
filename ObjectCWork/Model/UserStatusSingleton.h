@@ -20,5 +20,7 @@
 - (BOOL)isLikeDataObject: (ITunesDataObject *) iTunesObject;
 - (void)saveLikeDataObject: (ITunesDataObject *) iTunesObject;
 - (void)removeLikeDataObject: (ITunesDataObject *) iTunesObject;
+- (void)viewModelToWhite;
+- (void)viewModelToGray;
 
 @end

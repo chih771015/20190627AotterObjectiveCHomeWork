@@ -10,21 +10,36 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item 2-->
+        <!--User View Controller-->
         <scene sceneID="deM-eX-ecq">
             <objects>
-                <viewController id="t5e-AD-igr" sceneMemberID="viewController">
+                <viewController id="t5e-AD-igr" customClass="UserViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7w2-bV-hQ6">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="z6K-aS-wIH">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="zVK-Zb-1sP" firstAttribute="bottom" secondItem="z6K-aS-wIH" secondAttribute="bottom" id="jrM-zU-yj0"/>
+                            <constraint firstItem="z6K-aS-wIH" firstAttribute="top" secondItem="zVK-Zb-1sP" secondAttribute="top" id="olE-OS-ukn"/>
+                            <constraint firstItem="zVK-Zb-1sP" firstAttribute="trailing" secondItem="z6K-aS-wIH" secondAttribute="trailing" id="wgg-vm-U28"/>
+                            <constraint firstItem="z6K-aS-wIH" firstAttribute="leading" secondItem="zVK-Zb-1sP" secondAttribute="leading" id="z6f-TO-Olt"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="zVK-Zb-1sP"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="a5M-2Q-vnz"/>
+                    <navigationItem key="navigationItem" id="aw9-Wf-ng1"/>
+                    <connections>
+                        <outlet property="tableView" destination="z6K-aS-wIH" id="G2w-8W-i1A"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d6b-I7-Uvh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="449" y="25"/>
+            <point key="canvasLocation" x="1357.9710144927537" y="24.776785714285712"/>
         </scene>
         <!--Item 1-->
         <scene sceneID="qmW-hw-lqD">
@@ -92,12 +107,31 @@
                     </tabBar>
                     <connections>
                         <segue destination="Cjh-eq-pXp" kind="relationship" relationship="viewControllers" id="0by-Nv-4yB"/>
-                        <segue destination="t5e-AD-igr" kind="relationship" relationship="viewControllers" id="99n-yq-rs7"/>
+                        <segue destination="ek1-XN-Net" kind="relationship" relationship="viewControllers" id="99n-yq-rs7"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XRe-Lp-ZzY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-431" y="-692"/>
+        </scene>
+        <!--Item 2-->
+        <scene sceneID="4W7-Zg-Gvx">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ek1-XN-Net" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item 2" id="a5M-2Q-vnz"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="OKP-5C-MRB">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="t5e-AD-igr" kind="relationship" relationship="rootViewController" id="jJU-Sx-Sri"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Djn-uO-sPS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="447.82608695652175" y="24.776785714285712"/>
         </scene>
     </scenes>
 </document>
