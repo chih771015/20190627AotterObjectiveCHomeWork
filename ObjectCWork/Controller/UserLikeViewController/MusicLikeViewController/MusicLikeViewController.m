@@ -43,7 +43,10 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"SearchMainTableViewCell" bundle:nil] forCellReuseIdentifier:@"SearchMainTableViewCell"];
 }
 
-
+- (void)setupWithColorModel {
+    
+    self.tableView.backgroundColor = [self.userStatus returnNowColor];
+}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
@@ -51,8 +54,14 @@
     
     ITunesDataObject *data = self.userStatus.songLikeArrayObject[indexPath.row];
 
-    [cell setupCellWithTrackName:data.trackName artistName:data.artistName collectionName:data.collectionName longDescription:data.longDescription trackTime: [data getTimeString]
-                    trackViewUrl:data.artworkUrl100 isLike: YES];
+    [cell setupCellWithTrackName: data.trackName
+                      artistName: data.artistName
+                  collectionName: data.collectionName
+                 longDescription: data.longDescription
+                       trackTime: [data getTimeString]
+                    trackViewUrl: data.artworkUrl100
+                          isLike: YES
+                        isExpend: data.isExpand];
     cell.delegate = self;
     cell.backgroundColor = [self.userStatus returnNowColor];
     return cell;
@@ -71,6 +80,14 @@
     [self.tableView reloadData];
 }
 
+- (void)getExpandButtonAction:(UITableViewCell *)cell {
+    
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+    self.userStatus.songLikeArrayObject[indexPath.row].isExpand = !self.userStatus.songLikeArrayObject[indexPath.row].isExpand;
+    [self.tableView reloadData];
+    [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionMiddle animated:false];
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     //執行網址
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString: self.userStatus.songLikeArrayObject[indexPath.row].trackViewUrl]
@@ -78,14 +95,5 @@
                                            
                                        }];
 }
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

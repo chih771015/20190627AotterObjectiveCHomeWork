@@ -21,6 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface SearchMainTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *titleImageView;
 
+@property (weak, nonatomic) IBOutlet UIButton *expandButton;
 @property (weak, nonatomic) IBOutlet UILabel *trackNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *artistNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *collectionNameLabel;
@@ -28,6 +29,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *longDescriptionLabel;
 @property (weak, nonatomic) IBOutlet UIButton *likeButton;
 @property (nonatomic, weak) id <SearchMainTableViewCellDelegate> delegate;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *expandButtonConstaint;
 
 
 
@@ -37,7 +39,8 @@ NS_ASSUME_NONNULL_BEGIN
                longDescription: (NSString *)longDescription
                      trackTime: (NSString *)trackTime
                   trackViewUrl: (NSString *)trackViewUrl
-                        isLike: (BOOL) isLike;
+                        isLike: (BOOL) isLike
+                      isExpend: (BOOL) isExpand;
 
 @end
 

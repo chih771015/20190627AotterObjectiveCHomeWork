@@ -13,6 +13,7 @@
 
 @property NSString *kind, *artistName, *collectionName, *longDescription, *trackViewUrl, *trackName, *artworkUrl100;
 @property NSNumber *trackTime;
+@property BOOL isExpand;
 
 - (instancetype)initWithkind: (NSString *)kind
                   artistName: (NSString *)artistName
@@ -26,6 +27,6 @@
 - (instancetype)initWithDictionay: (NSDictionary *)dictionary;
 
 - (NSString*)getTimeString;
-
 - (NSDictionary*)returnDictionary;
+
 @end

@@ -8,7 +8,7 @@
 
 #import "SearchMainViewController.h"
 
-@interface SearchMainViewController() <UITableViewDelegate, UITableViewDataSource, SearchMainTableViewCellDelegate>
+@interface SearchMainViewController() <UITableViewDelegate, UITableViewDataSource, SearchMainTableViewCellDelegate, UITextFieldDelegate>
 
 @property ITunesProvider *itunesProvider;
 
@@ -22,6 +22,7 @@
     [super viewDidLoad];
     self.itunesProvider = [ITunesProvider new];
     [self setupTableView];
+    self.textField.delegate = self;
 }
 
 - (void)setupTableView {
@@ -35,7 +36,6 @@
 
 - (void)setupWithColorModel {
     self.view.backgroundColor = [self.userStatus returnNowColor];
-//    self.tableView.backgroundColor = self.userStatus.returnNowColor;
     [self.tableView reloadData];
 }
 
@@ -55,21 +55,36 @@
     }
     
     BOOL isLike = [self.userStatus.likeArray containsObject:[data returnDictionary]];
-    [cell setupCellWithTrackName:data.trackName artistName:data.artistName collectionName:data.collectionName longDescription:data.longDescription trackTime: [data getTimeString]
-                    trackViewUrl:data.artworkUrl100 isLike: isLike];
+    [cell setupCellWithTrackName: data.trackName
+                      artistName: data.artistName
+                  collectionName: data.collectionName
+                 longDescription: data.longDescription
+                       trackTime: [data getTimeString]
+                    trackViewUrl: data.artworkUrl100
+                          isLike: isLike
+                        isExpend: data.isExpand];
     cell.delegate = self;
     cell.backgroundColor = [self.userStatus returnNowColor];
     return cell;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    
+    //判斷有無資料 沒有就不給header
     if (section == 0) {
         
-        return @"音樂";
+        if (self.itunesProvider.songArray.count == 0) {
+            
+            return @"";
+        } else {
+            
+            return @"音樂";
+        }
     } else {
-        
-        return @"電影";
+        if (self.itunesProvider.movieArray.count == 0) {
+            return @"";
+        } else {
+            return @"電影";
+        }
     }
 }
 
@@ -92,7 +107,7 @@
     }
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+    //前往 url
     if (indexPath.section == 0) {
         
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString: self.itunesProvider.songArray[indexPath.row].trackViewUrl]
@@ -150,6 +165,24 @@
 }
 
 - (void)getExpandButtonAction:(UITableViewCell *)cell {
-    
+    //判斷是否展開並更改狀態且重新讀取 cell
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+    if (indexPath.section == 0) {
+        
+        self.itunesProvider.songArray[indexPath.row].isExpand = !self.itunesProvider.songArray[indexPath.row].isExpand;
+    } else {
+        
+        self.itunesProvider.movieArray[indexPath.row].isExpand = !self.itunesProvider.movieArray[indexPath.row].isExpand;
+    }
+  
+    [self.tableView reloadData];
+    [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionMiddle animated:false];
 }
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    //關鍵盤
+    [textField resignFirstResponder];
+    return YES;
+}
+
 @end

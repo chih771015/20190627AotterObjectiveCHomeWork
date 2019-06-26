@@ -14,7 +14,7 @@
 
 @implementation ITunesDataObject
 
-@synthesize kind, artistName, trackTime, collectionName, longDescription, trackViewUrl, trackName, artworkUrl100;
+@synthesize kind, artistName, trackTime, collectionName, longDescription, trackViewUrl, trackName, artworkUrl100, isExpand;
 
 - (instancetype)initWithDictionay:(NSDictionary *)dictionary {
     
@@ -37,6 +37,7 @@
         self.trackViewUrl = trackViewUrl;
         self.trackName = trackName;
         self.artworkUrl100 = artworkUrl100;
+        self.isExpand = false;
     }
     return self;
 }
@@ -60,6 +61,7 @@
         self.trackViewUrl = trackViewUrl;
         self.trackName = trackName;
         self.artworkUrl100 = artworkUrl100;
+        self.isExpand = false;
     }
     return self;
 }

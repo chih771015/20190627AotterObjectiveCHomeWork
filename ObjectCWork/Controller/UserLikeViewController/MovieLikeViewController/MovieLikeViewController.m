@@ -30,15 +30,17 @@
 - (void)getNotification:(NSNotification *)notification {
     
     [self.tableView reloadData];
-    
 }
-
 
 - (void)setupTableView {
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self.tableView registerNib:[UINib nibWithNibName:@"SearchMainTableViewCell" bundle:nil] forCellReuseIdentifier:@"SearchMainTableViewCell"];
+}
+- (void)setupWithColorModel {
+    
+    self.tableView.backgroundColor = [self.userStatus returnNowColor];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -47,8 +49,14 @@
     
     ITunesDataObject *data = self.userStatus.movieLikeArrayObject[indexPath.row];
     
-    [cell setupCellWithTrackName:data.trackName artistName:data.artistName collectionName:data.collectionName longDescription:data.longDescription trackTime: [data getTimeString]
-                    trackViewUrl:data.artworkUrl100 isLike: YES];
+    [cell setupCellWithTrackName: data.trackName
+                      artistName: data.artistName
+                  collectionName: data.collectionName
+                 longDescription: data.longDescription
+                       trackTime: [data getTimeString]
+                    trackViewUrl: data.artworkUrl100
+                          isLike: YES
+                        isExpend: data.isExpand];
     cell.delegate = self;
     cell.backgroundColor = [self.userStatus returnNowColor];
     return cell;
@@ -68,6 +76,11 @@
 }
 
 - (void)getExpandButtonAction:(UITableViewCell *)cell {
+    
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+    self.userStatus.movieLikeArrayObject[indexPath.row].isExpand = !self.userStatus.movieLikeArrayObject[indexPath.row].isExpand;
+    [self.tableView reloadData];
+    [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionMiddle animated:false];
     
 }
 
