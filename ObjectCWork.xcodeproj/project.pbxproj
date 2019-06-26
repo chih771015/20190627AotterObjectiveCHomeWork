@@ -253,7 +253,6 @@
 				59E6B42222BE5D7A00A956DD /* Controller */,
 				59E6B40C22BE5B8900A956DD /* AppDelegate.h */,
 				59E6B40D22BE5B8900A956DD /* AppDelegate.m */,
-				59E6B41222BE5B8900A956DD /* Main.storyboard */,
 				59E6B41522BE5B8A00A956DD /* Assets.xcassets */,
 				59E6B41722BE5B8A00A956DD /* LaunchScreen.storyboard */,
 				59E6B41A22BE5B8A00A956DD /* Info.plist */,
@@ -278,6 +277,7 @@
 		59E6B42622BE668100A956DD /* View */ = {
 			isa = PBXGroup;
 			children = (
+				59E6B41222BE5B8900A956DD /* Main.storyboard */,
 				5974A8A222C22A9E00F02C93 /* SelectColorModel */,
 				5974A89A22C2065400F02C93 /* User */,
 				5974A89922C2063C00F02C93 /* SearchMain */,

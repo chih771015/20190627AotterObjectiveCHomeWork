@@ -21,8 +21,6 @@
 - (BOOL)isLikeDataObject: (ITunesDataObject *) iTunesObject;
 - (void)saveLikeDataObject: (ITunesDataObject *) iTunesObject;
 - (void)removeLikeDataObject: (ITunesDataObject *) iTunesObject;
-- (void)viewModelToWhite;
-- (void)viewModelToDeep;
 - (void)setupViewModelWithColorArrayIndex: (NSInteger)index;
 - (UIColor*)returnNowColor;
 @end

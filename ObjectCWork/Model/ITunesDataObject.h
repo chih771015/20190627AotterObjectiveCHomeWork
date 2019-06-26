@@ -27,5 +27,5 @@
 
 - (NSString*)getTimeString;
 
-- (NSDictionary*)returnDictionay;
+- (NSDictionary*)returnDictionary;
 @end

@@ -20,6 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupTableView];
+    self.navigationItem.title = @"主題顏色";
     // Do any additional setup after loading the view.
 }
 

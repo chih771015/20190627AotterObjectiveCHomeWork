@@ -70,6 +70,15 @@
 - (void)getExpandButtonAction:(UITableViewCell *)cell {
     
 }
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString: self.userStatus.movieLikeArrayObject[indexPath.row].trackViewUrl]
+                                       options: [NSDictionary new] completionHandler:^(BOOL success) {
+                                           
+                                       }];
+}
 /*
  #pragma mark - Navigation
  

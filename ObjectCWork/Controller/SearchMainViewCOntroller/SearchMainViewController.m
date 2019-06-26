@@ -54,7 +54,7 @@
         data = _itunesProvider.movieArray[indexPath.row];
     }
     
-    BOOL isLike = [self.userStatus.likeArray containsObject:[data returnDictionay]];
+    BOOL isLike = [self.userStatus.likeArray containsObject:[data returnDictionary]];
     [cell setupCellWithTrackName:data.trackName artistName:data.artistName collectionName:data.collectionName longDescription:data.longDescription trackTime: [data getTimeString]
                     trackViewUrl:data.artworkUrl100 isLike: isLike];
     cell.delegate = self;
@@ -79,7 +79,7 @@
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
+    //決定 cell 數量
     if (section == 0) {
         
         return _itunesProvider.songArray.count;
@@ -111,15 +111,18 @@
 }
 
 - (IBAction)searchButtonAction:(id)sender {
+    //轉換搜尋關鍵字 空格換成 +
     
     NSString *text = [self.textField.text stringByReplacingOccurrencesOfString:@" " withString:@"+"];
     
+    __weak __typeof(self) weakSelf = self;
     [self.itunesProvider getSearchITune: text completionHandler:^{
         
-        [self.tableView reloadData];
+        [weakSelf.tableView reloadData];
     }];
 }
 
+//delegate 執行method 做出相對應的動作
 - (void)getLikeButtonAction:(UITableViewCell *)cell {
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
     ITunesDataObject *data;

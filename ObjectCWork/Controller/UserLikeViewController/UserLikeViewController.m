@@ -20,6 +20,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.scrollView.delegate = self;
+    self.navigationItem.title = @"收藏項目";
 }
 
 - (void)setupWithColorModel {

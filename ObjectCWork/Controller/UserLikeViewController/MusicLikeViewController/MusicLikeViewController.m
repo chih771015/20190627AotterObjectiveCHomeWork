@@ -21,7 +21,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self setupTableView];
-
+    //註冊Notification 更新資料
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getNotification:) name:@"reloadData" object:nil];
 }
 
@@ -71,8 +71,12 @@
     [self.tableView reloadData];
 }
 
-- (void)getExpandButtonAction:(UITableViewCell *)cell {
-    
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    //執行網址
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString: self.userStatus.songLikeArrayObject[indexPath.row].trackViewUrl]
+                                       options: [NSDictionary new] completionHandler:^(BOOL success) {
+                                           
+                                       }];
 }
 /*
 #pragma mark - Navigation

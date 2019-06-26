@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol SearchMainTableViewCellDelegate <NSObject>
 
 -(void) getLikeButtonAction: (UITableViewCell *)cell;
--(void) getExpandButtonAction: (UITableViewCell *)cell;
+@optional -(void) getExpandButtonAction: (UITableViewCell *)cell;
 
 @end
 

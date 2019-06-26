@@ -8,12 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "UserTableViewCell.h"
-#import "UserStatusSingleton.h"
 #import "WebViewController.h"
+#import "BaseViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface UserViewController : UIViewController
+@interface UserViewController : BaseViewController
 
 @end
 

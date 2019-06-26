@@ -25,13 +25,16 @@
 }
 
 - (void) getSearchITune:(NSString *)searchTitle completionHandler: (void(^)(void))completionHandler {
-    
+    // 重置資料與更新畫面 不然原本的畫面會在造成 crash
     self.songArray = [NSMutableArray new];
     self.movieArray = [NSMutableArray new];
     completionHandler();
+    //
     
+    __weak __typeof(self) weakSelf = self;
     [self.afNetWorking postRequest:searchTitle completionHandler:^(NSDictionary *dictionary) {
-
+    
+        //將拿到的 response 轉換成物件
         NSArray *allArray = dictionary[@"results"];
         for (NSDictionary *dictionary in allArray) {
             
@@ -55,12 +58,14 @@
             
             if ([data.kind isEqualToString:@"song"]) {
                 
-                [self.songArray addObject:data];
+                [weakSelf.songArray addObject:data];
             } else {
                 
-                [self.movieArray addObject:data];
+                [weakSelf.movieArray addObject:data];
             };
         }
+        
+        // 轉至主執行緒避免 UI更新造成卡頓
         dispatch_async(dispatch_get_main_queue(), ^{
             completionHandler();
         });

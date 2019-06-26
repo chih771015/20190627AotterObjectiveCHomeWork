@@ -22,11 +22,11 @@
 @implementation UserStatusSingleton
 
 @synthesize colorSelect, colorArray;
-
+//Singleton 設置
 + (UserStatusSingleton *)sharedInstance {
     
     static UserStatusSingleton *sharedInstance = nil;
-    static dispatch_once_t onceToken; // onceToken = 0
+    static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         sharedInstance = [[UserStatusSingleton alloc] init];
     });
@@ -71,17 +71,7 @@
     [self setupViewModelToUserDefault];
 }
 
-- (void)viewModelToDeep {
-    
-    self.colorSelect = @"深色";
-    [self setupViewModelToUserDefault];
-}
-
-- (void)viewModelToWhite {
-    
-    self.colorSelect = @"淺色";
-    [self setupViewModelToUserDefault];
-}
+//從userDefaults取出資料 設置物件的值
 - (void)setupLikesProperty {
     
     NSMutableArray<NSDictionary *> *likeArray = [[self.userDefault objectForKey:@"LikeData"] mutableCopy];
@@ -111,18 +101,18 @@
 
 - (BOOL)isLikeDataObject:(ITunesDataObject *)iTunesObject {
     
-    return [self.likeArray containsObject:[iTunesObject returnDictionay]];
+    return [self.likeArray containsObject:[iTunesObject returnDictionary]];
 }
 
 - (void)removeLikeDataObject:(ITunesDataObject *)iTunesObject {
     
-    [self.likeArray removeObject: [iTunesObject returnDictionay]];
+    [self.likeArray removeObject: [iTunesObject returnDictionary]];
     [self saveToUserDefault];
 }
 
 - (void)saveLikeDataObject:(ITunesDataObject *)iTunesObject {
     
-    [self.likeArray addObject: [iTunesObject returnDictionay]];
+    [self.likeArray addObject: [iTunesObject returnDictionary]];
     [self saveToUserDefault];
 }
 

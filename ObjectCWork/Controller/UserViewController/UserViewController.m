@@ -10,8 +10,6 @@
 
 @interface UserViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (strong, nonatomic)UserStatusSingleton *userStatus;
-
 @property (weak, nonatomic) IBOutlet UIView *tableFooterView;
 -(void)setupTableView;
 
@@ -22,20 +20,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.userStatus = [UserStatusSingleton sharedInstance];
     [self setupTableView];
+    self.navigationItem.title = @"個人資料";
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    if ([self.userStatus.colorSelect isEqualToString:@"淺色"]) {
-        
-        self.tableView.backgroundColor = [UIColor whiteColor];
-    } else {
-        
-        self.tableView.backgroundColor = [UIColor grayColor];
-    }
+    
     [self.tableView reloadData];
+}
+
+- (void)setupWithColorModel {
+    
+    self.tableView.backgroundColor = [self.userStatus returnNowColor];
+    self.tableFooterView.backgroundColor = [self.userStatus returnNowColor];
 }
 
 - (void)setupTableView {
@@ -81,12 +79,16 @@
  
     return 12;
 }
+
+//進入 webViewController
 - (IBAction)aboutITunesAction:(id)sender {
     
     WebViewController *nextVC = [self.storyboard instantiateViewControllerWithIdentifier:@"WebViewController"];
     [self presentViewController:nextVC animated:YES completion:nil];
 }
 
+
+//進入不同的ViewController
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if (indexPath.section == 0) {

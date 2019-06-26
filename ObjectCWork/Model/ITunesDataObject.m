@@ -64,37 +64,40 @@
     return self;
 }
 
+//將時間轉乘 Stromg 的形式並回傳
 -(NSString *)getTimeString {
-    
-    NSNumber *minSecond = @([trackTime intValue] % 100);
-    if (@([minSecond intValue] % 10) == 0) {
-        minSecond = @([minSecond intValue] / 10);
-    }
-    NSNumber *secondCount = @([trackTime intValue] / 100);
+
+    NSNumber *secondCount = @([trackTime intValue] / 1000);
     NSNumber *second = @([secondCount intValue] % 60);
     NSNumber *min = @([secondCount intValue] / 60);
     NSNumber *minComplet = @([min intValue] % 60);
     NSNumber *hour = @([min intValue] / 60);
-   // NSString *minSecondString = [minSecond stringValue];
     NSString *secondString = [second stringValue];
     NSString *minString = [minComplet stringValue];
     NSString *hourString = [hour stringValue];
     NSMutableString *allTimeString = [NSMutableString new];
-    if (hour <= 0) {
+    if ([hour integerValue] > 0) {
         
         [allTimeString appendString:hourString];
         [allTimeString appendString:@":"];
     }
+    if ([minComplet integerValue] < 10) {
+        
+        [allTimeString appendString:@"0"];
+    }
     [allTimeString appendString:minString];
     [allTimeString appendString:@":"];
+    if ([second integerValue] < 10) {
+        
+        [allTimeString appendString:@"0"];
+    }
     [allTimeString appendString:secondString];
-//    [allTimeString appendString:@"."];
-//    [allTimeString appendString:minSecondString];
-    
+
     return allTimeString;
 }
 
-- (NSDictionary *)returnDictionay {
+//將物件轉換成 dictionary
+- (NSDictionary *)returnDictionary {
     
     NSMutableDictionary *dictionary = [NSMutableDictionary new];
     

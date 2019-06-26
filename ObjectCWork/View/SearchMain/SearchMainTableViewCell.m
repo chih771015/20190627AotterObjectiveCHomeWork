@@ -50,6 +50,7 @@
 }
 - (void)prepareForReuse {
     [super prepareForReuse];
+    self.titleImageView.image = [UIImage new];
 
 }
 - (IBAction)likeAction:(id)sender {

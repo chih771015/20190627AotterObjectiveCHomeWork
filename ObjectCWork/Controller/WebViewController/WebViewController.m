@@ -14,9 +14,10 @@
 
 @implementation WebViewController
 
+// 設定 webView 的 URL
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
     [self.webView setDelegate:self];
     NSString *urlAddress = @"https://support.apple.com/itunes";
     NSURL *url = [NSURL URLWithString:urlAddress];
@@ -24,15 +25,6 @@
     [self.webView loadRequest:requestObj];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 - (IBAction)dismissAction:(id)sender {
     
     [self dismissViewControllerAnimated: YES completion:nil];
