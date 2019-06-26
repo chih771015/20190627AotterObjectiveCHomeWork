@@ -33,7 +33,7 @@
     [self.afNetWorking postRequest:searchTitle completionHandler:^(NSDictionary *dictionary) {
 
         NSArray *allArray = dictionary[@"results"];
-        for (NSDictionary * dictionary in allArray) {
+        for (NSDictionary *dictionary in allArray) {
             
             NSString *kind = dictionary[@"kind"],
                         *artistName = dictionary[@"artistName"],

@@ -28,9 +28,12 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    if ([self.userStatus.colorSelect isEqualToString:@"白色"]) {
+    if ([self.userStatus.colorSelect isEqualToString:@"淺色"]) {
         
         self.tableView.backgroundColor = [UIColor whiteColor];
+    } else {
+        
+        self.tableView.backgroundColor = [UIColor grayColor];
     }
     [self.tableView reloadData];
 }
@@ -82,6 +85,15 @@
     
     WebViewController *nextVC = [self.storyboard instantiateViewControllerWithIdentifier:@"WebViewController"];
     [self presentViewController:nextVC animated:YES completion:nil];
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (indexPath.section == 0) {
+        
+        UIViewController *nextVC = [self.storyboard instantiateViewControllerWithIdentifier: @"SelectColorModelViewController"];
+        [self.navigationController pushViewController:nextVC animated:YES];
+    } 
 }
 
 @end

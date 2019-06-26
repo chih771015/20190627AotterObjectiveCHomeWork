@@ -21,6 +21,8 @@
 
 @implementation UserStatusSingleton
 
+@synthesize colorSelect, colorArray;
+
 + (UserStatusSingleton *)sharedInstance {
     
     static UserStatusSingleton *sharedInstance = nil;
@@ -40,6 +42,7 @@
         self.userDefault = [NSUserDefaults standardUserDefaults];
         self.songLikeArrayObject = [NSMutableArray new];
         self.movieLikeArrayObject = [NSMutableArray new];
+        self.colorArray = [NSArray arrayWithObjects:@"淺色",@"深色", nil];
         [self setupLikesProperty];
         [self setupViewModel];
     }
@@ -51,7 +54,7 @@
     NSString *color = [self.userDefault objectForKey:@"colorModel"];
     if (color == nil) {
         
-        color = @"白色";
+        color = @"淺色";
     }
     self.colorSelect = color;
 }
@@ -62,15 +65,21 @@
     [self.userDefault synchronize];
 }
 
-- (void)viewModelToGray {
+- (void)setupViewModelWithColorArrayIndex:(NSInteger)index {
     
-    self.colorSelect = @"灰色";
+    self.colorSelect = self.colorArray[index];
+    [self setupViewModelToUserDefault];
+}
+
+- (void)viewModelToDeep {
+    
+    self.colorSelect = @"深色";
     [self setupViewModelToUserDefault];
 }
 
 - (void)viewModelToWhite {
     
-    self.colorSelect = @"白色";
+    self.colorSelect = @"淺色";
     [self setupViewModelToUserDefault];
 }
 - (void)setupLikesProperty {
@@ -118,5 +127,16 @@
     [self.userDefault setObject: self.likeArray forKey:@"LikeData"];
     [self.userDefault synchronize];
     [self setupLikesProperty];
+}
+
+- (UIColor *)returnNowColor {
+    
+    if ([self.colorSelect isEqualToString:self.colorArray[0]]) {
+        
+        return [UIColor whiteColor];
+    } else {
+        
+        return [UIColor grayColor];
+    }
 }
 @end

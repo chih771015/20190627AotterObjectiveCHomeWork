@@ -63,6 +63,36 @@
             </objects>
             <point key="canvasLocation" x="1357.9710144927537" y="24.776785714285712"/>
         </scene>
+        <!--Select Color Model View Controller-->
+        <scene sceneID="bWo-Ho-9oA">
+            <objects>
+                <viewController storyboardIdentifier="SelectColorModelViewController" id="UYi-EY-RFU" customClass="SelectColorModelViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Y4m-py-vxS">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="98X-0S-0gq">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="IbO-OS-HHB" firstAttribute="trailing" secondItem="98X-0S-0gq" secondAttribute="trailing" id="Cfj-3t-jg3"/>
+                            <constraint firstItem="98X-0S-0gq" firstAttribute="leading" secondItem="IbO-OS-HHB" secondAttribute="leading" id="Mc4-vM-tcp"/>
+                            <constraint firstItem="IbO-OS-HHB" firstAttribute="bottom" secondItem="98X-0S-0gq" secondAttribute="bottom" id="ngT-Gl-JnJ"/>
+                            <constraint firstItem="98X-0S-0gq" firstAttribute="top" secondItem="IbO-OS-HHB" secondAttribute="top" id="ofl-78-1hw"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="IbO-OS-HHB"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="98X-0S-0gq" id="vib-xe-Yez"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IRf-qN-tfy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1358" y="691"/>
+        </scene>
         <!--Web View Controller-->
         <scene sceneID="dmn-dr-eqC">
             <objects>

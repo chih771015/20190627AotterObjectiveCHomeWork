@@ -11,7 +11,8 @@
 @interface SearchMainViewController() <UITableViewDelegate, UITableViewDataSource, SearchMainTableViewCellDelegate>
 
 @property ITunesProvider *itunesProvider;
-@property UserStatusSingleton *userStatus;
+
+-(void)setupTableView;
 
 @end
 
@@ -20,16 +21,22 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.itunesProvider = [ITunesProvider new];
-    self.userStatus = [UserStatusSingleton sharedInstance];
+    [self setupTableView];
+}
+
+- (void)setupTableView {
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self.tableView registerNib:[UINib nibWithNibName: @"SearchMainTableViewCell"
                                                bundle:nil]
          forCellReuseIdentifier: @"SearchMainTableViewCell"];
+
 }
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
+
+- (void)setupWithColorModel {
     
+//    self.tableView.backgroundColor = self.userStatus.returnNowColor;
+    [self.tableView reloadData];
 }
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
@@ -51,6 +58,7 @@
     [cell setupCellWithTrackName:data.trackName artistName:data.artistName collectionName:data.collectionName longDescription:data.longDescription trackTime: [data getTimeString]
                     trackViewUrl:data.artworkUrl100 isLike: isLike];
     cell.delegate = self;
+    cell.backgroundColor = [self.userStatus returnNowColor];
     return cell;
 }
 

@@ -9,9 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "ITunesProvider.h"
 #import "SearchMainTableViewCell.h"
-#import "UserStatusSingleton.h"
+#import "BaseViewController.h"
 
-@interface SearchMainViewController : UIViewController
+@interface SearchMainViewController : BaseViewController
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UITextField *textField;

@@ -6,7 +6,7 @@
 //  Copyright © 2019 姜旦旦. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 #import "ITunesDataObject.h"
 @interface UserStatusSingleton : NSObject
 
@@ -14,6 +14,7 @@
 @property NSMutableArray<ITunesDataObject *> *songLikeArrayObject;
 @property NSMutableArray<ITunesDataObject *> *movieLikeArrayObject;
 @property NSString *colorSelect;
+@property NSArray<NSString *> *colorArray;
 
 + (UserStatusSingleton *)sharedInstance;
 
@@ -21,6 +22,7 @@
 - (void)saveLikeDataObject: (ITunesDataObject *) iTunesObject;
 - (void)removeLikeDataObject: (ITunesDataObject *) iTunesObject;
 - (void)viewModelToWhite;
-- (void)viewModelToGray;
-
+- (void)viewModelToDeep;
+- (void)setupViewModelWithColorArrayIndex: (NSInteger)index;
+- (UIColor*)returnNowColor;
 @end
