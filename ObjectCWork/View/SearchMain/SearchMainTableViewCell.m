@@ -40,7 +40,7 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
-    self.layer.borderWidth = 1;
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

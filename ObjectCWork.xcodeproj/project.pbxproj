@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		5901A05922C3281500EC766F /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5901A05822C3281500EC766F /* BaseViewController.m */; };
+		5901A06022C360BD00EC766F /* UserLikeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5901A05F22C360BD00EC766F /* UserLikeViewController.m */; };
+		5901A06522C3649800EC766F /* MusicLikeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5901A06422C3649800EC766F /* MusicLikeViewController.m */; };
+		5901A06922C369CB00EC766F /* MovieLikeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5901A06822C369CB00EC766F /* MovieLikeViewController.m */; };
 		5924F1F822C075A800F1E57A /* ITunesDataObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 5924F1F722C075A800F1E57A /* ITunesDataObject.m */; };
 		5974A88F22C1DEE900F02C93 /* UserStatusSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5974A88E22C1DEE900F02C93 /* UserStatusSingleton.m */; };
 		5974A89322C1FD3C00F02C93 /* UserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5974A89222C1FD3C00F02C93 /* UserViewController.m */; };
@@ -35,6 +38,12 @@
 		04DE4DDA32EC54C1827629B7 /* Pods-ObjectCWork.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ObjectCWork.release.xcconfig"; path = "Target Support Files/Pods-ObjectCWork/Pods-ObjectCWork.release.xcconfig"; sourceTree = "<group>"; };
 		5901A05722C3281500EC766F /* BaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		5901A05822C3281500EC766F /* BaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		5901A05E22C360BD00EC766F /* UserLikeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserLikeViewController.h; sourceTree = "<group>"; };
+		5901A05F22C360BD00EC766F /* UserLikeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserLikeViewController.m; sourceTree = "<group>"; };
+		5901A06322C3649800EC766F /* MusicLikeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MusicLikeViewController.h; sourceTree = "<group>"; };
+		5901A06422C3649800EC766F /* MusicLikeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MusicLikeViewController.m; sourceTree = "<group>"; };
+		5901A06722C369CB00EC766F /* MovieLikeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MovieLikeViewController.h; sourceTree = "<group>"; };
+		5901A06822C369CB00EC766F /* MovieLikeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MovieLikeViewController.m; sourceTree = "<group>"; };
 		5924F1F722C075A800F1E57A /* ITunesDataObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ITunesDataObject.m; sourceTree = "<group>"; };
 		5924F1F922C075BB00F1E57A /* ITunesDataObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ITunesDataObject.h; sourceTree = "<group>"; };
 		5974A88E22C1DEE900F02C93 /* UserStatusSingleton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserStatusSingleton.m; sourceTree = "<group>"; };
@@ -90,6 +99,62 @@
 				5901A05822C3281500EC766F /* BaseViewController.m */,
 			);
 			path = BaseController;
+			sourceTree = "<group>";
+		};
+		5901A05A22C32E6E00EC766F /* SearchMainViewCOntroller */ = {
+			isa = PBXGroup;
+			children = (
+				59E6B42322BE5DB500A956DD /* SearchMainViewController.m */,
+				59E6B42522BE5E3B00A956DD /* SearchMainViewController.h */,
+			);
+			path = SearchMainViewCOntroller;
+			sourceTree = "<group>";
+		};
+		5901A05B22C32E8700EC766F /* WebViewController */ = {
+			isa = PBXGroup;
+			children = (
+				5974A89B22C21B5F00F02C93 /* WebViewController.h */,
+				5974A89C22C21B5F00F02C93 /* WebViewController.m */,
+			);
+			path = WebViewController;
+			sourceTree = "<group>";
+		};
+		5901A05C22C32EA600EC766F /* UserViewController */ = {
+			isa = PBXGroup;
+			children = (
+				5974A89122C1FD3C00F02C93 /* UserViewController.h */,
+				5974A89222C1FD3C00F02C93 /* UserViewController.m */,
+			);
+			path = UserViewController;
+			sourceTree = "<group>";
+		};
+		5901A05D22C3609100EC766F /* UserLikeViewController */ = {
+			isa = PBXGroup;
+			children = (
+				5901A06622C369AB00EC766F /* MovieLikeViewController */,
+				5901A06122C3646800EC766F /* MusicLikeViewController */,
+				5901A05E22C360BD00EC766F /* UserLikeViewController.h */,
+				5901A05F22C360BD00EC766F /* UserLikeViewController.m */,
+			);
+			path = UserLikeViewController;
+			sourceTree = "<group>";
+		};
+		5901A06122C3646800EC766F /* MusicLikeViewController */ = {
+			isa = PBXGroup;
+			children = (
+				5901A06322C3649800EC766F /* MusicLikeViewController.h */,
+				5901A06422C3649800EC766F /* MusicLikeViewController.m */,
+			);
+			path = MusicLikeViewController;
+			sourceTree = "<group>";
+		};
+		5901A06622C369AB00EC766F /* MovieLikeViewController */ = {
+			isa = PBXGroup;
+			children = (
+				5901A06722C369CB00EC766F /* MovieLikeViewController.h */,
+				5901A06822C369CB00EC766F /* MovieLikeViewController.m */,
+			);
+			path = MovieLikeViewController;
 			sourceTree = "<group>";
 		};
 		5905F78587D8AFD1E13BF6DA /* Frameworks */ = {
@@ -200,14 +265,12 @@
 		59E6B42222BE5D7A00A956DD /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				5901A05D22C3609100EC766F /* UserLikeViewController */,
+				5901A05C22C32EA600EC766F /* UserViewController */,
+				5901A05B22C32E8700EC766F /* WebViewController */,
+				5901A05A22C32E6E00EC766F /* SearchMainViewCOntroller */,
 				5901A05622C327FA00EC766F /* BaseController */,
 				5974A89E22C2257D00F02C93 /* SelectColorModelViewController */,
-				59E6B42322BE5DB500A956DD /* SearchMainViewController.m */,
-				59E6B42522BE5E3B00A956DD /* SearchMainViewController.h */,
-				5974A89122C1FD3C00F02C93 /* UserViewController.h */,
-				5974A89222C1FD3C00F02C93 /* UserViewController.m */,
-				5974A89B22C21B5F00F02C93 /* WebViewController.h */,
-				5974A89C22C21B5F00F02C93 /* WebViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -339,10 +402,13 @@
 				59E6B42422BE5DB500A956DD /* SearchMainViewController.m in Sources */,
 				5924F1F822C075A800F1E57A /* ITunesDataObject.m in Sources */,
 				5974A8A922C22AE100F02C93 /* SelectColorModelTableViewCell.m in Sources */,
+				5901A06522C3649800EC766F /* MusicLikeViewController.m in Sources */,
+				5901A06022C360BD00EC766F /* UserLikeViewController.m in Sources */,
 				59E6B42F22BE66D200A956DD /* SearchMainTableViewCell.m in Sources */,
 				59A49AD822BF7C26001A9507 /* AFNetworkingObject.m in Sources */,
 				59A49AD422BF7802001A9507 /* ITunesProvider.m in Sources */,
 				5974A88F22C1DEE900F02C93 /* UserStatusSingleton.m in Sources */,
+				5901A06922C369CB00EC766F /* MovieLikeViewController.m in Sources */,
 				59E6B40E22BE5B8900A956DD /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

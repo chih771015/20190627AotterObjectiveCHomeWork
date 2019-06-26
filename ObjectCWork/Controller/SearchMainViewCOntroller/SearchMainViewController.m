@@ -34,7 +34,7 @@
 }
 
 - (void)setupWithColorModel {
-    
+    self.view.backgroundColor = [self.userStatus returnNowColor];
 //    self.tableView.backgroundColor = self.userStatus.returnNowColor;
     [self.tableView reloadData];
 }

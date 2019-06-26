@@ -93,7 +93,12 @@
         
         UIViewController *nextVC = [self.storyboard instantiateViewControllerWithIdentifier: @"SelectColorModelViewController"];
         [self.navigationController pushViewController:nextVC animated:YES];
-    } 
+    }
+    if (indexPath.section == 1) {
+        
+        UIViewController *nextVC = [self.storyboard instantiateViewControllerWithIdentifier: @"UserLikeViewController"];
+        [self.navigationController pushViewController:nextVC animated:YES];
+    }
 }
 
 @end

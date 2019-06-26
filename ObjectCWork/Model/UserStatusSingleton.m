@@ -91,6 +91,8 @@
     }
     
     self.likeArray = likeArray;
+    self.songLikeArrayObject = [NSMutableArray new];
+    self.movieLikeArrayObject = [NSMutableArray new];
     
     for (NSDictionary* dictionay in likeArray) {
         
@@ -103,6 +105,8 @@
             [self.movieLikeArrayObject addObject:iTuneObject];
         }
     }
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadData" object:nil];
 }
 
 - (BOOL)isLikeDataObject:(ITunesDataObject *)iTunesObject {
